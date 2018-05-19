@@ -4,7 +4,7 @@ import java.util.ArrayList;	//import ArrayList class
 
 //DataReader class reads all chat messages
 public class DataReader {
-	
+
 	public ArrayList<String> getData(String strDir) {
 		
 		//(1) get Directory
@@ -39,6 +39,7 @@ public class DataReader {
  		ArrayList<String> messages = new ArrayList<String>();
  		
  		//some logics that read files must be here
+ 		
  		
  		return messages;	//return messages that include reading file
  	}
