@@ -4,5 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 
 public class DataReaderForCSV extends DataReader{
-
+	public void dataCut() {
+		
+	}
 }

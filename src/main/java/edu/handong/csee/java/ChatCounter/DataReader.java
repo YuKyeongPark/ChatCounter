@@ -5,7 +5,7 @@ import java.util.ArrayList;	//import ArrayList class
 //DataReader class reads all chat messages
 public class DataReader {
 
-	public ArrayList<String> getData(String strDir) {
+	public ArrayList<String> getData(String strDir) {	//method get data about file directory
 		
 		//(1) get Directory
 		File myDir = getDirectory(strDir);
