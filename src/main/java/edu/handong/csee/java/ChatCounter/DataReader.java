@@ -8,6 +8,19 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This is DataReader class
+ * This class has getData, getDateTime, getCurrentDate,formatFor2Digit, getFiles methods.
+ * getData: according to file type(csv or txt), the way is different
+ * getDateTime: determine date calculation
+ * getCurrentDate: return current year, month and day
+ * formatFor2Digit: if data is smaller than 10, add 0 in front of data
+ * getFiles: method to get file
+ * 
+ * @author YukyeongPark
+ *
+ */
+
 //reads all chat messages in path.csv and prints text
 public class DataReader {
 	//main method

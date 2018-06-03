@@ -1,5 +1,14 @@
 package edu.handong.csee.java.ChatCounter;
 
+/**
+ * This class is Message.
+ * This class has constructors.
+ * Overloading occurs
+ * 
+ * @author YukyeongPark
+ *
+ */
+
 public class Message {
 	private String id;
 	private String message;
@@ -27,13 +36,14 @@ public class Message {
 	}
 	
 	public Message(String dateTime, String id, String strMessage) {
+		
 	}
 
 	public String getId() {
-		
+		return id;
 	}
 	
-	public void getFromWhere() {
-		
+	public FromWhere getFromWhere() {
+		return fromWhere;
 	}
 }

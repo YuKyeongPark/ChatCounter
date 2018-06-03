@@ -8,6 +8,15 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class is DataReaderForCSV.
+ * This class has getMessagesFromCSVFiles
+ * getMessagesFromCSVFiles: get messages in CSV file into Hashmap by using fit form
+ * 
+ * @author YukyeongPark
+ *
+ */
+
 //csv읽고 해시맵에 저장
 public class DataReaderForCSV extends DataReader{
 	public HashMap<String, ArrayList<Message>> getMessagesFromCSVFiles(File file) {
@@ -25,12 +34,13 @@ public class DataReaderForCSV extends DataReader{
 			
 				//Before we add new key in hashmap, checking hashmap whether hashmap already have the key
 				if(!messages.containsKey(message.getId())) {
-					//if hashmap don't have the key, put message
+					//if hashmap have the key, put message
 					messages.put(user, new ArrayList<Message>());
 				}
 				
-				//
+				//if hashmap doesn't have message that we add, 
 				if(!existingMessage(messages, message, FromWhere.CSV))
+					//put new user and message that we add
 					messages.get(message.getId()).add(message);
 			}
 		}catch (FileNotFoundException e) {

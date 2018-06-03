@@ -11,8 +11,17 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//txt읽고 hashmap에 저장
-//line 읽고 메세지 폼에 맞춰 저장해서 user가 존재하면 key가 존재하면 그 키에 메세지 저장
+/**
+ * This class is DataReaderForTXT.
+ * This class has getMessagesFromTXTFiles.
+ * getMessagesFromTXTFiles: get messages in TXT file into Hashmap by using fit form 
+ * @author YukyeongPark
+ *
+ */
+
+//read txt file and store in hashmap
+//if user(key) exist, stores message in that key
+//if new user, add new key
 public class DataReaderForTXT extends DataReader {
 	public HashMap<String, ArrayList<Message>> getMessagesFromTXTFiles(File file) {
 
@@ -20,7 +29,7 @@ public class DataReaderForTXT extends DataReader {
 		try {
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(
-							new FileInputStream(file), "UTF-8"));
+							new FileInputStream(file), "UTF-8"));	//encoding
 			br.readLine();
 			br.readLine();
 			br.readLine();	//ignore three line
@@ -30,6 +39,7 @@ public class DataReaderForTXT extends DataReader {
 			int currentDay = -1;
 			String currentDate = "";
 			while((thisLine = br.readLine()) != null) {
+				//this pattern means "-------------- 2018년 3월 24일 --------------
 				if(thisLine.matches("-+\\s[0-9]+.\\s([0-9]+.\\s[0-9]+.+")) {
 					
 					String pattern = "-+\\s([0-9]+).\\s([0-9]+).\\s+([0-9]+).+";
@@ -73,11 +83,15 @@ public class DataReaderForTXT extends DataReader {
 
 						Message message = new Message(getDateTime(currentDate, time), id, strMessage);
 						
+						//Before we add new key in hashmap, checking hashmap whether hashmap already have the key
 						if(!messages.containsKey(message.getId())) {
+							//if hashmap have the key, put message
 							messages.put(id, new ArrayList<Message>());
 						}
 						
+						//if hashmap doesn't have message that we add, 
 //						if(!existingMessage(messages, message))
+							//put new user and message that we add
 //							messages.get(message.getId()).add(message);
 						}
 					}

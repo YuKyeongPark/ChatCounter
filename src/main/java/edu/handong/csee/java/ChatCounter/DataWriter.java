@@ -26,6 +26,8 @@ public class DataWriter {
 			DataOutputStream dos = new DataOutputStream(fos);
 				
 			for(String line: lines) {
+				//write data in lines
+				//getBytes():returns a Unicode string managed in Java as a byte array in charset with arguments
 				dos.write((line+"\n").getBytes());
 			}
 			dos.close();

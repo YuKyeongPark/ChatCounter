@@ -39,8 +39,8 @@ public class ChatCounter {
 	}
 	
 	public void run(String[] args) {
+		//Options constructor
 		Options options= createOptions();
-//		options.addOption(Option.builder);
 		
 		if(parseOptions(options, args)) {
 			if(help) {
@@ -53,7 +53,7 @@ public class ChatCounter {
 			//counting message
 			HashMap<String, Integer> counter = countMessages(messages);
 			
-			//
+			//sorting value
 			List<String> ids = sortByValue(counter);
 			
 			ArrayList<String> linesToWrite = new ArrayList<String>();
@@ -67,9 +67,11 @@ public class ChatCounter {
 		}
 	}
 	
+	//counting number of messages 
 	private HashMap<String, Integer> countMessages(HashMap<String, ArrayList<Message>> messages){
 		HashMap<String, Integer> counter = new HashMap<String, Integer>();
 		
+		//
 		for(String key:messages.keySet()) {
 			counter.put(key, messages.get(key).size());	//size means the number of messages
 		}
